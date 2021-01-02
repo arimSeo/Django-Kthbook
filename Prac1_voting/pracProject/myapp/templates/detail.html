@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 질문 제목 txt로 불러오기 -->
+    <h1>{{question.question_text}}</h1>
+    <!-- 에러메세지 -->
+    {% if error_message %}
+    <p><strong>{{error_message}}</strong></p>
+    {% endif %}
+
+    <form action="{% url 'myapp:vote' question.id %}" method="post">
+        <!-- CSRF공격 막기: 서버로 들어온 요청이 사이트 내부에서 온 것이 맞는지 -->
+        {% csrf_token %}
+        <!-- question.choice_set.all은 해당 Question모델을 foreign key로 참조하는 모든 Choice 모델을 가져온다 -->
+        {% for choice in question.choice_set.all %}
+        <input type="radio" name="choice" id="choice{{forloop.counter}}" value="{{choice.id}}" />
+        <label for="choice{{forloop.counter}}">{{choice.choice_text}}</label><br />
+        <!-- forloop은 반복문의 반복횟수 출력(1부터 시작) -->
+        {% endfor %}
+        <input type="submit" value="Vote" />
+
+    </form>
+
+
+</body>
+
+</html>

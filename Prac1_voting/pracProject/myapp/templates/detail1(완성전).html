@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detail</title>
+</head>
+
+<body>
+    <h1>{{question.question_text}}</h1>
+    <ul>
+        {% for choice in question.choice_set.all %}
+        <li>{{choice.choice_text}}</li>
+        {% endfor %}
+    </ul>
+    <!-- for 반복: 제목을txt로 반복 -->
+    <!--  question.choice_set.all은 Python 코드의 question.choice_set.all() 함수와 동일하며, for 문을 간편하게 쓰기 위해 존재한다.
+ 이는 해당 Question 모델을 foreign key로 갖는 Choice 모델을 for문으로 쓸 수 있게(iterable) 반환한다. -->
+
+
+
+</body>
+
+</html>
