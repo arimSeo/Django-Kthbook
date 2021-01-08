@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}삭제하기{% endblock %}</title>
+</head>
+
+<body>
+    {% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="alert alert-danger">삭제할래 나랑살래???? 나랑 치킨먹을래???<br />
+            "{{object}}"?
+        </div>
+        <input type="submit" value="삭제하기" class="btn btn-danger">
+    </form>
+
+    {% endblock %}
+</body>
+
+</html>

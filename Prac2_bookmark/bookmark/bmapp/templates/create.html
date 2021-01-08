@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}북마크 추가하기{% endblock %}</title>
+</head>
+
+<body>
+    {% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <!-- 클래스형 뷰의 필드들을 출력하는데 각 필드 내용에 대한 폼을 p태그로 감싸 출력 -->
+        <input type="submit" value="create" class="btn btn-info btn-sm">
+    </form>
+    {% endblock %}
+</body>
+
+</html>

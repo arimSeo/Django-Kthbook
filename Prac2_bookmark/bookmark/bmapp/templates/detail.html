@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Detail page{% endblock %}</title>
+</head>
+
+<body>
+    {% block content %}
+    
+    {{bookmark.site_name}}<br />
+    {{bookmark.url}}
+
+    {% endblock %}
+</body>
+
+</html>
